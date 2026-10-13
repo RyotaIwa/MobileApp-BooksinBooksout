@@ -1,0 +1,1425 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 300,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "mYZoPIxQsZsC",
+      "etag": "HAaoMybRjcU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/mYZoPIxQsZsC",
+      "volumeInfo": {
+        "title": "Year Books of Edward II.",
+        "publishedDate": "1914",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "WISC:89107606675"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 548,
+        "printType": "BOOK",
+        "categories": [
+          "Great Britain"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.7.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=mYZoPIxQsZsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=mYZoPIxQsZsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=mYZoPIxQsZsC&pg=PA33-IA1&dq=books&hl=&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=mYZoPIxQsZsC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=mYZoPIxQsZsC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=mYZoPIxQsZsC&rdid=book-mYZoPIxQsZsC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Year_Books_of_Edward_II.epub?id=mYZoPIxQsZsC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=mYZoPIxQsZsC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003eBooks\u003c/b\u003e of Years nor as \u003cb\u003eBooks\u003c/b\u003e of Terms , but as &#39; \u003cb\u003ebooks\u003c/b\u003e &#39; simply . In Trinity term 1 Edward V. it was said &#39; by divers apprentices present at the bar that it is adjudged in our \u003cb\u003ebooks\u003c/b\u003e . &#39; We have also seen on an earlier page 1 that when&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "pmo4_fKewUUC",
+      "etag": "NORN7mRppYI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/pmo4_fKewUUC",
+      "volumeInfo": {
+        "title": "Catalogue of Printed Books in the Sanskrit College Library",
+        "authors": [
+          "Sanskrit College (Kolkata, India). Library"
+        ],
+        "publishedDate": "1919",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112119678636"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 872,
+        "printType": "BOOK",
+        "categories": [
+          "Library catalogs"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.7.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=pmo4_fKewUUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=pmo4_fKewUUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=pmo4_fKewUUC&pg=PA13&dq=books&hl=&cd=2&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=pmo4_fKewUUC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=pmo4_fKewUUC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=pmo4_fKewUUC&rdid=book-pmo4_fKewUUC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Catalogue_of_Printed_Books_in_the_Sanskr.epub?id=pmo4_fKewUUC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=pmo4_fKewUUC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebook\u003c/b\u003e . Edited by- Publishers &#39; name and place and date of publication . 160 Milton , John ... Paradise Lost , \u003cb\u003eBook\u003c/b\u003e I M. Macmillan , B.A. Macmillan &amp; Co. , 161 Ditto ... .. Ditto , \u003cb\u003eBooks\u003c/b\u003e I and II . Ditto ... 162 Ditto ... ... Ditto , \u003cb\u003eBook\u003c/b\u003e&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "o7wdMr-Oi8QC",
+      "etag": "1eJk6x5I048",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/o7wdMr-Oi8QC",
+      "volumeInfo": {
+        "title": "Monthly Bulletin of Books Added to the Public Library of the City of Boston",
+        "authors": [
+          "Boston Public Library"
+        ],
+        "publishedDate": "1905",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UTEXAS:059172130643105"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 872,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=o7wdMr-Oi8QC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=o7wdMr-Oi8QC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=o7wdMr-Oi8QC&pg=RA1-PA194&dq=books&hl=&cd=3&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=o7wdMr-Oi8QC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=o7wdMr-Oi8QC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=o7wdMr-Oi8QC&rdid=book-o7wdMr-Oi8QC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Monthly_Bulletin_of_Books_Added_to_the_P.epub?id=o7wdMr-Oi8QC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=o7wdMr-Oi8QC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebook\u003c/b\u003e , with synonyms , idioms , and the genders and declensions of nouns . Dub- lin , 1903 . * 24892.108 A selection of Irish \u003cb\u003ebooks\u003c/b\u003e , p . 338 . Gablin , Adrien , publisher . Nouvelle méthode avec prononciation pour apprendre l&#39;anglais&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "s6Ko-Xq9fC8C",
+      "etag": "+duVh31KWmw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/s6Ko-Xq9fC8C",
+      "volumeInfo": {
+        "title": "Sale-catalogues of Second-hand Books on Sale by Henry Sotheran & Co",
+        "authors": [
+          "Sotheran, Henry and Co"
+        ],
+        "publishedDate": "1871",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "NLS:V001495768"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 904,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.7.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=s6Ko-Xq9fC8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=s6Ko-Xq9fC8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=s6Ko-Xq9fC8C&pg=RA23-PA9&dq=books&hl=&cd=4&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=s6Ko-Xq9fC8C&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=s6Ko-Xq9fC8C"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=s6Ko-Xq9fC8C&rdid=book-s6Ko-Xq9fC8C&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Sale_catalogues_of_Second_hand_Books_on.epub?id=s6Ko-Xq9fC8C&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=s6Ko-Xq9fC8C&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003eBook\u003c/b\u003e containing the Treatises of Hawking , Hunting , Coat - Armour , Fishing , and Blasing of Arms ; as printed ... \u003cb\u003eBooks\u003c/b\u003e of Common Prayer , comprising the Seven various Editions from Edward VI . to the Present Time , reprinted in&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "xnCCDwAAQBAJ",
+      "etag": "i8dXzA+Tqqc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/xnCCDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Promote Your Book",
+        "subtitle": "Over 250 Proven, Low-Cost Tips and Techniques for the Enterprising Author",
+        "authors": [
+          "Patricia Fry"
+        ],
+        "publisher": "Simon and Schuster",
+        "publishedDate": "2011-08-10",
+        "description": "Do you have what it takes to become an author, but are not sure where to start? Promote Your Book gives enterprising authors the advantage they need to navigate the publishing industry and gain a better understanding of what book promotion is all about. This well-organized collection of the most successful low-cost and no-cost ideas provides solutions for both aspiring and seasoned authors in any genre. You will learn how to promote the book without changing your lifestyle; how to promote creatively, locally, and through social media; submit news releases and tip sheets; arrange book signings, radio, and TV appearances; enhance marketing skills; spend money in all the right places, and more.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781621533726"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1621533727"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 275,
+        "printType": "BOOK",
+        "categories": [
+          "Language Arts & Disciplines"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.5.6.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=xnCCDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=xnCCDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=xnCCDwAAQBAJ&pg=PT194&dq=books&hl=&cd=5&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=xnCCDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=xnCCDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 983.61,
+          "currencyCode": "PHP"
+        },
+        "retailPrice": {
+          "amount": 668.85,
+          "currencyCode": "PHP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=xnCCDwAAQBAJ&rdid=book-xnCCDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 983610000,
+              "currencyCode": "PHP"
+            },
+            "retailPrice": {
+              "amountInMicros": 668850000,
+              "currencyCode": "PHP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.com.ph/books/download/Promote_Your_Book-sample-epub.acsm?id=xnCCDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=xnCCDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e to individuals and fifty \u003cb\u003ebooks\u003c/b\u003e through bookstore and other retail stores, he/she will earn $269.00. This ought to motivate some of your out-of-work friends or maybe a college student who ... \u003cb\u003ebooks\u003c/b\u003e . If Add to Your Line of \u003cb\u003eBooks\u003c/b\u003e."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3KNWDwAAQBAJ",
+      "etag": "esKssAmY32A",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3KNWDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Book Presence in a Digital Age",
+        "authors": [
+          "Kiene Brillenburg Wurth",
+          "Kári Driscoll",
+          "Jessica Pressman"
+        ],
+        "publisher": "Bloomsbury Publishing USA",
+        "publishedDate": "2018-06-28",
+        "description": "Contrary to the apocalyptic pronouncements of paper media's imminent demise in the digital age, there has been a veritable surge of creative reimaginings of books as bearers of the literary. From typographic experiments (Mark Z. Danielewski's House of Leaves, Steven Hall's The Raw Shark Texts) to accordion books (Anne Carson's Nox), from cut ups (Jonathan Safran Foer's Tree of Codes) to collages (Graham Rawle's Woman's World), from erasures (Mary Ruefle's A Little White Shadow) to mixups (Simon Morris's The Interpretations of Dreams), print literature has gone through anything but a slow, inevitable death. In fact, it has re-invented itself materially. Starting from this idea of media plurality, Book Presence in a Digital Age explores the resilience of print literatures, book art, and zines in the late age of print from a contemporary perspective, while incorporating longer-term views on media archeology and media change. Even as it focuses on the materiality of books and literary writing in the present, Book Presence also takes into consideration earlier 20th-century \"moments\" of media transition, developing the concepts of presence and materiality as analytical tools to perform literary criticism in a digital age. Bringing together leading scholars, artists, and publishers, Book Presence in a Digital Age offers a variety of perspectives on the past, present, and future of the book as medium, the complex relationship of materiality to virtuality, and of the analog to the digital.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781501321191"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1501321196"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 293,
+        "printType": "BOOK",
+        "categories": [
+          "Social Science"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.3.4.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3KNWDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3KNWDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=3KNWDwAAQBAJ&pg=PA64&dq=books&hl=&cd=6&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=3KNWDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=3KNWDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 2659.46,
+          "currencyCode": "PHP"
+        },
+        "retailPrice": {
+          "amount": 1861.62,
+          "currencyCode": "PHP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=3KNWDwAAQBAJ&rdid=book-3KNWDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2659460000,
+              "currencyCode": "PHP"
+            },
+            "retailPrice": {
+              "amountInMicros": 1861620000,
+              "currencyCode": "PHP"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3KNWDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e use the \u003cb\u003ebook\u003c/b\u003e as a canvas and the work exists and operates within the context of a \u003cb\u003ebook\u003c/b\u003e. They usually don&#39;t ... \u003cb\u003ebooks\u003c/b\u003e is that artists&#39; \u003cb\u003ebooks\u003c/b\u003e still function as \u003cb\u003ebooks\u003c/b\u003e; you open them and interact with them by flipping pages&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "y3DfV4Y7zI0C",
+      "etag": "ctYk56mH58A",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/y3DfV4Y7zI0C",
+      "volumeInfo": {
+        "title": "Annual Report",
+        "authors": [
+          "Medford (Mass.)"
+        ],
+        "publishedDate": "1902",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "HARVARD:LI1YFU"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 396,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=y3DfV4Y7zI0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=y3DfV4Y7zI0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=y3DfV4Y7zI0C&pg=PA85&dq=books&hl=&cd=7&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=y3DfV4Y7zI0C&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=y3DfV4Y7zI0C"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=y3DfV4Y7zI0C&rdid=book-y3DfV4Y7zI0C&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Annual_Report.epub?id=y3DfV4Y7zI0C&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=y3DfV4Y7zI0C&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e John B. Peaslee , \u003cb\u003ebooks\u003c/b\u003e $ 16 20 100 61 1 50 Desmond Publishing Co. , \u003cb\u003ebooks\u003c/b\u003e 35 00 Goodspeed&#39;s \u003cb\u003eBook\u003c/b\u003e Shop , \u003cb\u003ebooks\u003c/b\u003e 4 50 Frederick Loesser &amp; Co. , \u003cb\u003ebooks\u003c/b\u003e 6 69 Joseph McDonough , \u003cb\u003ebooks\u003c/b\u003e 5 07 Joel Munsell&#39;s Sons , \u003cb\u003ebooks\u003c/b\u003e 5.00 John Lane&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "JPmaoYDaCFwC",
+      "etag": "Gg9CV8INuX4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/JPmaoYDaCFwC",
+      "volumeInfo": {
+        "title": "Letts's Housekeeping and Engagements Book for 1873",
+        "publishedDate": "1872",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "NLS:V000612108"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 156,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.4.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=JPmaoYDaCFwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=JPmaoYDaCFwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=JPmaoYDaCFwC&pg=RA1-PP16&dq=books&hl=&cd=8&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=JPmaoYDaCFwC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=JPmaoYDaCFwC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=JPmaoYDaCFwC&rdid=book-JPmaoYDaCFwC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Letts_s_Housekeeping_and_Engagements_Boo.epub?id=JPmaoYDaCFwC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=JPmaoYDaCFwC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003eBooks\u003c/b\u003e , printed and perforated , paper cover , 6d . &amp; 1s . each . Letts&#39;s Wine Cellar \u003cb\u003eBook\u003c/b\u003e , octavo size , in cloth , 2s . 6d . Letts&#39;s Private Order \u003cb\u003eBooks\u003c/b\u003e for Writing Tradesmen&#39;s Orders , Letts&#39;s Gummed Labels , in \u003cb\u003ebooks\u003c/b\u003e of 250 labels ,&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Cn96vH17FQsC",
+      "etag": "9kZyxQ8LUqw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Cn96vH17FQsC",
+      "volumeInfo": {
+        "title": "The Statesman's Year-book",
+        "authors": [
+          "Frederick Martin",
+          "Sir John Scott Keltie",
+          "Isaac Parker Anderson Renwick",
+          "Mortimer Epstein",
+          "Sigfrid Henry Steinberg",
+          "John Paxton",
+          "Brian Hunter (Librarian)",
+          "Barry Turner"
+        ],
+        "publishedDate": "1890",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UOM:39015014316676"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 1188,
+        "printType": "BOOK",
+        "categories": [
+          "Economic geography"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Cn96vH17FQsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Cn96vH17FQsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=Cn96vH17FQsC&pg=PR18&dq=books&hl=&cd=9&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=Cn96vH17FQsC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Cn96vH17FQsC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=Cn96vH17FQsC&rdid=book-Cn96vH17FQsC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/The_Statesman_s_Year_book.epub?id=Cn96vH17FQsC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Cn96vH17FQsC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003eBooks\u003c/b\u003e of Reference 629 \u003cb\u003eBooks\u003c/b\u003e of Reference . 651 • GREECE HAWAII- Reigning King 632 • Reigning King , Constitu- Constitution and Govern- tion , and Government 652 • ment 632 Area and Population 653 • Area and Population 634 • Religion&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "edDdtToePwAC",
+      "etag": "KfDNvX8fxmQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/edDdtToePwAC",
+      "volumeInfo": {
+        "title": "The China Christian Year Book",
+        "authors": [
+          "Edwin Carlyle Lobenstein",
+          "Abbe Livingston Warnshuis",
+          "Frank Joseph Rawlinson",
+          "Henry Theodore Hodgkin"
+        ],
+        "publishedDate": "1911",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112033798072"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 644,
+        "printType": "BOOK",
+        "categories": [
+          "Missions"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.7.10.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=edDdtToePwAC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=edDdtToePwAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=edDdtToePwAC&pg=RA3-PR2&dq=books&hl=&cd=10&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=edDdtToePwAC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=edDdtToePwAC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=edDdtToePwAC&rdid=book-edDdtToePwAC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/The_China_Christian_Year_Book.epub?id=edDdtToePwAC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=edDdtToePwAC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003eBooks\u003c/b\u003e for Missionaries , The best , ... App . vi \u003cb\u003eBooks\u003c/b\u003e issued by the C. L. S. ... ... ... ... 393 \u003cb\u003eBooks\u003c/b\u003e issued by the Y. M. С. А. ... ... ... 415 \u003cb\u003eBooks\u003c/b\u003e needed by the Chinese ... ... 123-126 \u003cb\u003eBooks\u003c/b\u003e on China . ... ... App . v . \u003cb\u003eBooks\u003c/b\u003e read&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "mx7EIdonuHEC",
+      "etag": "NpBl1XrpmbY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/mx7EIdonuHEC",
+      "volumeInfo": {
+        "title": "Parts of a book",
+        "authors": [
+          "Florence May Hopkins"
+        ],
+        "publishedDate": "1919",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UTEXAS:059172108015413"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 26,
+        "printType": "BOOK",
+        "categories": [
+          "Reference books"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.5.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=mx7EIdonuHEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=mx7EIdonuHEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=mx7EIdonuHEC&pg=PA1&dq=books&hl=&cd=11&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=mx7EIdonuHEC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=mx7EIdonuHEC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=mx7EIdonuHEC&rdid=book-mx7EIdonuHEC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Parts_of_a_book.epub?id=mx7EIdonuHEC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=mx7EIdonuHEC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e . The complete series constitutes a second edition of &quot; Reference guides that should be known and how to use them , &quot; which first appeared in 1916 as a text \u003cb\u003ebook\u003c/b\u003e for high and normal schools . The revision treats important phases&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "q6KP3W0Vt-MC",
+      "etag": "RHLKsrbzD2g",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/q6KP3W0Vt-MC",
+      "volumeInfo": {
+        "title": "The Official Year Book of New South Wales",
+        "publishedDate": "1913",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112113398314"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 1062,
+        "printType": "BOOK",
+        "categories": [
+          "New South Wales"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.12.16.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=q6KP3W0Vt-MC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=q6KP3W0Vt-MC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=q6KP3W0Vt-MC&pg=PA528&dq=books&hl=&cd=12&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=q6KP3W0Vt-MC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=q6KP3W0Vt-MC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=q6KP3W0Vt-MC&rdid=book-q6KP3W0Vt-MC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/The_Official_Year_Book_of_New_South_Wale.epub?id=q6KP3W0Vt-MC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=q6KP3W0Vt-MC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e of the Australian Subscription Library , founded in 1826 , were purchased by the Government . The \u003cb\u003ebooks\u003c/b\u003e thus acquired numbered about 16,000 , and formed the nucleus of the present Library . In 1890 the Library was incorporated&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "aqzBXni4jvEC",
+      "etag": "SysA0SONbro",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/aqzBXni4jvEC",
+      "volumeInfo": {
+        "title": "Dictionary Catalogue of the Illinois State Library",
+        "subtitle": "(public Documents Excepted)",
+        "authors": [
+          "Illinois State Library"
+        ],
+        "publishedDate": "1912",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112120213514"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 814,
+        "printType": "BOOK",
+        "categories": [
+          "Catalogs, Dictionary"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=aqzBXni4jvEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=aqzBXni4jvEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=aqzBXni4jvEC&pg=PA86&dq=books&hl=&cd=13&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=aqzBXni4jvEC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=aqzBXni4jvEC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=aqzBXni4jvEC&rdid=book-aqzBXni4jvEC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Dictionary_Catalogue_of_the_Illinois_Sta.epub?id=aqzBXni4jvEC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=aqzBXni4jvEC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003eBooks\u003c/b\u003e . Addison , Julia de Wolfe . Illumination of \u003cb\u003ebooks\u003c/b\u003e . ( Arts and crafts in the middle ages . ) Il . 8 ° . Page . 1908 . Baldwin , J. \u003cb\u003eBook\u003c/b\u003e lover : a guide to the best reading . 16 ° . Chicago . 1885 . Blades W : \u003cb\u003eBooks\u003c/b\u003e in chains&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "AKNZI68PWSIC",
+      "etag": "EYZX56G5hVs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/AKNZI68PWSIC",
+      "volumeInfo": {
+        "title": "Documents of the Assembly of the State of New York",
+        "authors": [
+          "New York (State). Legislature. Assembly"
+        ],
+        "publishedDate": "1872",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "COLUMBIA:CU08229210"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 1234,
+        "printType": "BOOK",
+        "categories": [
+          "New York (State)"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.7.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=AKNZI68PWSIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=AKNZI68PWSIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=AKNZI68PWSIC&pg=PA385&dq=books&hl=&cd=14&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=AKNZI68PWSIC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=AKNZI68PWSIC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=AKNZI68PWSIC&rdid=book-AKNZI68PWSIC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Documents_of_the_Assembly_of_the_State_o.epub?id=AKNZI68PWSIC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=AKNZI68PWSIC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e have you produced on the subpenas ? A. I have the \u003cb\u003ebooks\u003c/b\u003e of the Astor Fire Insurance Company ; commencing on the 10th of November , 1871 , and terminating on the 15th Decem- ber , 1871 , in the Union Square National Bank . Q. What&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "QRgsMj1vLpUC",
+      "etag": "s3Ft/U0moFQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/QRgsMj1vLpUC",
+      "volumeInfo": {
+        "title": "Subject-matter Index of Applications for Letters Patent, for the Year ...",
+        "authors": [
+          "Great Britain. Patent Office"
+        ],
+        "publishedDate": "1887",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "NYPL:33433063030062"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 316,
+        "printType": "BOOK",
+        "categories": [
+          "Patents"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.10.12.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=QRgsMj1vLpUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=QRgsMj1vLpUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=QRgsMj1vLpUC&pg=PA18&dq=books&hl=&cd=15&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=QRgsMj1vLpUC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=QRgsMj1vLpUC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=QRgsMj1vLpUC&rdid=book-QRgsMj1vLpUC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Subject_matter_Index_of_Applications_for.epub?id=QRgsMj1vLpUC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=QRgsMj1vLpUC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e , Bullen . 2514. Feb. 20 . Cheque \u003cb\u003ebooks\u003c/b\u003e . Brain . 3157. Mar. 6 . Index for letter - \u003cb\u003ebooks\u003c/b\u003e . Lake ( Spurgin ) , 3341. Mar. 9 . Cutting indices and rounding corners of \u003cb\u003ebooks\u003c/b\u003e . Lawrence , [ 3579. Mar. 13 . Check - \u003cb\u003ebook\u003c/b\u003e for checking&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "f3vgkvPcOlMC",
+      "etag": "hZvC4K7jN2o",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/f3vgkvPcOlMC",
+      "volumeInfo": {
+        "title": "Annual Report of the Receipts and Expenditures",
+        "authors": [
+          "Manchester (N.H.)"
+        ],
+        "publishedDate": "1897",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112109770443"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 796,
+        "printType": "BOOK",
+        "categories": [
+          "Finance"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.7.9.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=f3vgkvPcOlMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=f3vgkvPcOlMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=f3vgkvPcOlMC&pg=PA402&dq=books&hl=&cd=16&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=f3vgkvPcOlMC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=f3vgkvPcOlMC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=f3vgkvPcOlMC&rdid=book-f3vgkvPcOlMC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Annual_Report_of_the_Receipts_and_Expend.epub?id=f3vgkvPcOlMC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=f3vgkvPcOlMC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e ... W. B. Clarke &amp; Co. , \u003cb\u003ebooks\u003c/b\u003e .... Boston Society of Natural History , periodicals ....... Publishers &#39; Weekly , \u003cb\u003ebooks\u003c/b\u003e ... Little , Brown &amp; Co. , \u003cb\u003ebooks\u003c/b\u003e ... New England News Co. , peri- odicals ..... 3.50 39.07 8.00 3.50 2.00&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "bVsTUx_Qm3oC",
+      "etag": "fnd6aoEsCTE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/bVsTUx_Qm3oC",
+      "volumeInfo": {
+        "title": "Publishers' Weekly",
+        "subtitle": "The International News Magazine of Book Publishing and Bookselling",
+        "publishedDate": "1877",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "BSB:BSB11359091"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 754,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.7.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=bVsTUx_Qm3oC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=bVsTUx_Qm3oC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=bVsTUx_Qm3oC&pg=PA152&dq=books&hl=&cd=17&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=bVsTUx_Qm3oC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=bVsTUx_Qm3oC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=bVsTUx_Qm3oC&rdid=book-bVsTUx_Qm3oC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Publishers_Weekly.epub?id=bVsTUx_Qm3oC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=bVsTUx_Qm3oC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The International News Magazine of \u003cb\u003eBook\u003c/b\u003e Publishing and Bookselling. CHEAPEST \u003cb\u003eBOOK\u003c/b\u003e HOUSE IN THE WORLD . T. B. ... \u003cb\u003eBooks\u003c/b\u003e in very attractive style , including a new series of 25 - cent , 50 - cent , 75 - cent , $ 1 , $ 1.50 , $ 1.75&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "vBfOo0EClOQC",
+      "etag": "kmUP3ChQ34k",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/vBfOo0EClOQC",
+      "volumeInfo": {
+        "title": "Proceedings",
+        "authors": [
+          "Chicago (Ill.). Board of Education"
+        ],
+        "publishedDate": "1884",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112076267803"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 328,
+        "printType": "BOOK",
+        "categories": [
+          "Education"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.6.5.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=vBfOo0EClOQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=vBfOo0EClOQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=vBfOo0EClOQC&pg=PA252&dq=books&hl=&cd=18&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=vBfOo0EClOQC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=vBfOo0EClOQC"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=vBfOo0EClOQC&rdid=book-vBfOo0EClOQC&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/Proceedings.epub?id=vBfOo0EClOQC&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=vBfOo0EClOQC&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e furnished them from these funds , for the use of indigent children . They shall record , in a \u003cb\u003ebook\u003c/b\u003e provided for this purpose , the name of each pupil to whom a \u003cb\u003ebook\u003c/b\u003e is loaned , the title of the \u003cb\u003ebook\u003c/b\u003e , date of delivering , and date&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "aSz03yCAmc4C",
+      "etag": "Eexflz9uUqM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/aSz03yCAmc4C",
+      "volumeInfo": {
+        "title": "The Accountant",
+        "publishedDate": "1913",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "COLUMBIA:CU03935159"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 1062,
+        "printType": "BOOK",
+        "categories": [
+          "Accounting"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.6.7.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=aSz03yCAmc4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=aSz03yCAmc4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=aSz03yCAmc4C&pg=RA1-PA527&dq=books&hl=&cd=19&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=aSz03yCAmc4C&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=aSz03yCAmc4C"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=aSz03yCAmc4C&rdid=book-aSz03yCAmc4C&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/The_Accountant.epub?id=aSz03yCAmc4C&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=aSz03yCAmc4C&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003eBooks\u003c/b\u003e of Account and the Legislature . ( To the Editor of The Accountant . ) “ “ on SIR , You have very properly pointed out in your leading article this week that Section 3 of the Bank- ruptcy and Deeds of Arrangement Act , 1913 , in&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "UnhKiqp5ME0C",
+      "etag": "doxVRzzh+Fk",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/UnhKiqp5ME0C",
+      "volumeInfo": {
+        "title": "The Annotated Revised Statutes of the State of Ohio",
+        "subtitle": "Including All Laws of a General Nature in Force, January 1, 1898",
+        "authors": [
+          "Ohio"
+        ],
+        "publishedDate": "1897",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "HARVARD:HL3BR6"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 1778,
+        "printType": "BOOK",
+        "categories": [
+          "Law"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.4.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=UnhKiqp5ME0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=UnhKiqp5ME0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com.ph/books?id=UnhKiqp5ME0C&pg=PA2093&dq=books&hl=&cd=20&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=UnhKiqp5ME0C&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=UnhKiqp5ME0C"
+      },
+      "saleInfo": {
+        "country": "PH",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=UnhKiqp5ME0C&rdid=book-UnhKiqp5ME0C&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "PH",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.com.ph/books/download/The_Annotated_Revised_Statutes_of_the_St.epub?id=UnhKiqp5ME0C&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=UnhKiqp5ME0C&hl=&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... \u003cb\u003ebooks\u003c/b\u003e for five years for the public schools of the state ; said \u003cb\u003ebooks\u003c/b\u003e to be delivered from time to time as the board may direct , and to be paid for by each of the several counties as provided in section 7 , upon approved vouchers&nbsp;..."
+      }
+    }
+  ]
+}
