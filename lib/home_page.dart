@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'book_service.dart';
+import 'book_api_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,6 +14,254 @@ class _HomePageState extends State<HomePage> {
   final User? user = FirebaseAuth.instance.currentUser;
 
   int _selectedIndex = 0;
+  final BookApiController _apiController = BookApiController();
+  final List<_BookActivity> _activity = [];
+
+  void _openSection(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  Future<void> _recordBookAction(BookProduct product, String action) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('$action book?'),
+        content: Text(
+          action == 'Buy'
+              ? 'Add "${product.title}" to My Books?'
+              : 'Add "${product.title}" to Rented Books?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text('Confirm $action'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true || !mounted) return;
+
+    try {
+      final result = await _apiController.createOrder(
+        product: product,
+        action: action,
+      );
+      final orderId = result.json['id'];
+      if (orderId == null) {
+        throw const FormatException('The API did not return an order ID.');
+      }
+
+      if (!mounted) return;
+
+      setState(() {
+        final isRent = action == 'Rent';
+        _activity.insert(
+          0,
+          _BookActivity(
+            orderId: orderId.toString(),
+            product: product,
+            action: action,
+            status: isRent ? 'Rented' : 'To read',
+          ),
+        );
+      });
+
+      Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            action == 'Rent'
+                ? 'Book added to Rented Books.'
+                : 'Book added to My Books.',
+          ),
+        ),
+      );
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Could not add this book. Try again.')),
+      );
+      debugPrint('Could not create book action: $error');
+    }
+  }
+
+  Future<void> _updateActivity(_BookActivity entry) async {
+    final isRental = entry.action == 'Rent';
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(isRental ? 'Stop renting?' : 'Mark as read?'),
+        content: Text(
+          isRental
+              ? 'Return "${entry.product.title}" and move it to History?'
+              : '"${entry.product.title}" will be moved to History.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(isRental ? 'Stop renting' : 'Mark as read'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+
+    final updatedStatus = entry.action == 'Rent' ? 'Returned' : 'Read';
+    try {
+      await _apiController.updateOrder(
+        orderId: entry.orderId,
+        product: entry.product,
+        action: entry.action,
+        status: updatedStatus,
+      );
+      if (!mounted) return;
+
+      setState(() {
+        final index = _activity.indexOf(entry);
+        if (index >= 0) {
+          _activity[index] = entry.copyWith(status: updatedStatus);
+        }
+      });
+      _showRequestMessage(
+        entry.action == 'Rent' ? 'Book returned.' : 'Book marked as read.',
+      );
+    } catch (error) {
+      _showRequestMessage('Could not update this book. Try again.');
+      debugPrint('Could not update book action: $error');
+    }
+  }
+
+  Future<void> _deleteActivity(_BookActivity entry) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Remove book?'),
+        content: Text('Remove "${entry.product.title}" from this list?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Keep'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Remove'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+
+    try {
+      await _apiController.deleteOrder(entry.orderId);
+      if (!mounted) return;
+      setState(() {
+        _activity.remove(entry);
+      });
+      _showRequestMessage('Book removed.');
+    } catch (error) {
+      _showRequestMessage('Could not remove this book. Try again.');
+      debugPrint('Could not delete book action: $error');
+    }
+  }
+
+  void _showRequestMessage(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  Widget _buildShelf({
+    required String title,
+    required IconData icon,
+    required List<_BookActivity> entries,
+    required String emptyMessage,
+    required String actionLabel,
+    bool showAction = true,
+  }) {
+    return _ContainedSection(
+      title: title,
+      icon: icon,
+      child: Column(
+        children: [
+          if (entries.isEmpty)
+            ListTile(leading: Icon(icon), title: Text(emptyMessage))
+          else
+            ...entries.map(
+              (entry) => ListTile(
+                leading: Icon(
+                  entry.action == 'Buy'
+                      ? Icons.shopping_bag_outlined
+                      : Icons.autorenew,
+                ),
+                title: Text(entry.product.title),
+                subtitle: Text(
+                  '${entry.action} · ${entry.product.author} · ${entry.status}',
+                ),
+                trailing: entry.action == 'Rent' && entry.status == 'Rented'
+                    ? IconButton(
+                        tooltip: 'Stop renting',
+                        onPressed: () => _updateActivity(entry),
+                        icon: const Icon(Icons.assignment_return_outlined),
+                      )
+                    : Wrap(
+                        children: [
+                          if (showAction)
+                            IconButton(
+                              tooltip: actionLabel,
+                              onPressed: () => _updateActivity(entry),
+                              icon: const Icon(Icons.check_circle_outline),
+                            ),
+                          IconButton(
+                            tooltip: 'Remove book',
+                            onPressed: () => _deleteActivity(entry),
+                            icon: const Icon(Icons.delete_outline),
+                          ),
+                        ],
+                      ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHistory() {
+    return _buildShelf(
+      title: 'History',
+      icon: Icons.history,
+      entries: List.of(_activity),
+      emptyMessage: 'Books you buy or rent will appear here.',
+      actionLabel: '',
+      showAction: false,
+    );
+  }
+
+  Widget _buildCatalog({
+    required String title,
+    required String description,
+    required String initialQuery,
+  }) {
+    return BookSearchSection(
+      key: ValueKey(_selectedIndex),
+      title: title,
+      description: description,
+      initialQuery: initialQuery,
+      apiController: _apiController,
+      onAction: _recordBookAction,
+    );
+  }
 
   static const List<NavigationDrawerDestination> _destinations = [
     NavigationDrawerDestination(
@@ -44,7 +292,17 @@ class _HomePageState extends State<HomePage> {
     NavigationDrawerDestination(
       icon: Icon(Icons.history),
       selectedIcon: Icon(Icons.history),
-      label: Text('My activity'),
+      label: Text('My Books'),
+    ),
+    NavigationDrawerDestination(
+      icon: Icon(Icons.bookmark_border),
+      selectedIcon: Icon(Icons.bookmark),
+      label: Text('Rented Books'),
+    ),
+    NavigationDrawerDestination(
+      icon: Icon(Icons.history_outlined),
+      selectedIcon: Icon(Icons.history),
+      label: Text('History'),
     ),
   ];
 
@@ -59,7 +317,11 @@ class _HomePageState extends State<HomePage> {
       case 4:
         return 'Recommendations';
       case 5:
-        return 'My activity';
+        return 'My Books';
+      case 6:
+        return 'Rented Books';
+      case 7:
+        return 'History';
       default:
         return 'Dashboard';
     }
@@ -71,7 +333,11 @@ class _HomePageState extends State<HomePage> {
     // ========================================================
 
     if (_selectedIndex == 1) {
-      return const BookSearchSection();
+      return _buildCatalog(
+        title: 'Book collection',
+        description: 'Search books from the online catalogue.',
+        initialQuery: 'fiction',
+      );
     }
 
     // ========================================================
@@ -79,15 +345,10 @@ class _HomePageState extends State<HomePage> {
     // ========================================================
 
     if (_selectedIndex == 2) {
-      return const _ContainedSection(
-        title: 'Buy books',
-        icon: Icons.shopping_bag,
-        child: ListTile(
-          leading: Icon(Icons.sell_outlined),
-          title: Text('Find books to own'),
-          subtitle: Text('Build your personal collection with new favourites.'),
-          trailing: Icon(Icons.arrow_forward),
-        ),
+      return _buildCatalog(
+        title: 'Books to buy',
+        description: 'Explore books to add to your collection.',
+        initialQuery: 'fiction',
       );
     }
 
@@ -96,15 +357,10 @@ class _HomePageState extends State<HomePage> {
     // ========================================================
 
     if (_selectedIndex == 3) {
-      return const _ContainedSection(
-        title: 'Rent books',
-        icon: Icons.autorenew,
-        child: ListTile(
-          leading: Icon(Icons.event_available),
-          title: Text('Read more for less'),
-          subtitle: Text('Rent books for flexible, affordable reading.'),
-          trailing: Icon(Icons.arrow_forward),
-        ),
+      return _buildCatalog(
+        title: 'Books to rent',
+        description: 'Find your next read to rent.',
+        initialQuery: 'fiction',
       );
     }
 
@@ -113,32 +369,47 @@ class _HomePageState extends State<HomePage> {
     // ========================================================
 
     if (_selectedIndex == 4) {
-      return const _ContainedSection(
+      return _buildCatalog(
         title: 'Recommended for you',
-        icon: Icons.recommend,
-        child: ListTile(
-          leading: Icon(Icons.auto_stories),
-          title: Text('Curated reading picks'),
-          subtitle: Text('Discover a book matched to your reading interests.'),
-          trailing: Icon(Icons.arrow_forward),
-        ),
+        description: 'Discover popular books from the online catalog.',
+        initialQuery: 'bestselling fiction',
       );
     }
 
     // ========================================================
-    // MY ACTIVITY
+    // MY BOOKS
     // ========================================================
 
     if (_selectedIndex == 5) {
-      return const _ContainedSection(
-        title: 'Your activity',
-        icon: Icons.history,
-        child: ListTile(
-          leading: Icon(Icons.receipt_long),
-          title: Text('No recent activity'),
-          subtitle: Text('Your purchases and rentals will appear here.'),
-        ),
+      return _buildShelf(
+        title: 'My Books',
+        icon: Icons.menu_book,
+        entries: _activity
+            .where(
+              (entry) => entry.action == 'Buy' && entry.status == 'To read',
+            )
+            .toList(),
+        emptyMessage: 'Books you buy will be ready to read here.',
+        actionLabel: 'Mark as read',
       );
+    }
+
+    if (_selectedIndex == 6) {
+      return _buildShelf(
+        title: 'Rented Books',
+        icon: Icons.bookmark,
+        entries: _activity
+            .where(
+              (entry) => entry.action == 'Rent' && entry.status == 'Rented',
+            )
+            .toList(),
+        emptyMessage: 'Books you rent will appear here.',
+        actionLabel: 'Return book',
+      );
+    }
+
+    if (_selectedIndex == 7) {
+      return _buildHistory();
     }
 
     // ========================================================
@@ -166,11 +437,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Icons.autorenew,
                 title: 'Rent a book',
                 description: 'Read more for less.',
-                onTap: () {
-                  setState(() {
-                    _selectedIndex = 3;
-                  });
-                },
+                onTap: () => _openSection(3),
               ),
             ),
 
@@ -181,11 +448,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Icons.shopping_bag,
                 title: 'Buy a book',
                 description: 'Own your next favourite read.',
-                onTap: () {
-                  setState(() {
-                    _selectedIndex = 2;
-                  });
-                },
+                onTap: () => _openSection(2),
               ),
             ),
           ],
@@ -193,26 +456,29 @@ class _HomePageState extends State<HomePage> {
 
         const SizedBox(height: 20),
 
-        const _ContainedSection(
+        _ContainedSection(
           title: 'Recommended reading',
           icon: Icons.recommend,
           child: ListTile(
-            leading: Icon(Icons.auto_stories),
-            title: Text('A pick for your next chapter'),
-            subtitle: Text('Browse recommendations based on your interests.'),
-            trailing: Icon(Icons.arrow_forward),
+            onTap: () => _openSection(4),
+            leading: const Icon(Icons.auto_stories),
+            title: const Text('Popular picks for your next chapter'),
+            subtitle: const Text('Explore book recommendations.'),
+            trailing: const Icon(Icons.arrow_forward),
           ),
         ),
 
         const SizedBox(height: 20),
 
-        const _ContainedSection(
+        _ContainedSection(
           title: 'Quick updates',
           icon: Icons.notifications_none,
           child: ListTile(
-            leading: Icon(Icons.local_library_outlined),
-            title: Text('Your library is ready'),
-            subtitle: Text('Buy, rent, or discover a recommended book today.'),
+            onTap: () => _openSection(7),
+            leading: const Icon(Icons.local_library_outlined),
+            title: const Text('Your reading history'),
+            subtitle: const Text('See books you have read or returned.'),
+            trailing: const Icon(Icons.arrow_forward),
           ),
         ),
       ],
@@ -286,11 +552,7 @@ class _HomePageState extends State<HomePage> {
       // RENT BUTTON
       // ======================================================
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          setState(() {
-            _selectedIndex = 3;
-          });
-        },
+        onPressed: () => _openSection(3),
 
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
 
@@ -304,6 +566,33 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _apiController.close();
+    super.dispose();
+  }
+}
+
+class _BookActivity {
+  final String orderId;
+  final BookProduct product;
+  final String action;
+  final String status;
+
+  const _BookActivity({
+    required this.orderId,
+    required this.product,
+    required this.action,
+    required this.status,
+  });
+
+  _BookActivity copyWith({String? status}) => _BookActivity(
+    orderId: orderId,
+    product: product,
+    action: action,
+    status: status ?? this.status,
+  );
 }
 
 // ==========================================================
@@ -311,7 +600,22 @@ class _HomePageState extends State<HomePage> {
 // ==========================================================
 
 class BookSearchSection extends StatefulWidget {
-  const BookSearchSection({super.key});
+  final Future<List<BookProduct>> Function(String query)? loadProducts;
+  final BookApiController? apiController;
+  final String title;
+  final String description;
+  final String initialQuery;
+  final Future<void> Function(BookProduct product, String action)? onAction;
+
+  const BookSearchSection({
+    super.key,
+    this.loadProducts,
+    this.apiController,
+    this.title = 'Service Catalog',
+    this.description = 'Browse books available to buy or rent.',
+    this.initialQuery = 'fiction',
+    this.onAction,
+  });
 
   @override
   State<BookSearchSection> createState() => _BookSearchSectionState();
@@ -319,19 +623,26 @@ class BookSearchSection extends StatefulWidget {
 
 class _BookSearchSectionState extends State<BookSearchSection> {
   final TextEditingController _searchController = TextEditingController();
+  late final BookApiController _apiController =
+      widget.apiController ?? BookApiController();
 
-  List<dynamic> _books = [];
+  List<BookProduct> _products = [];
 
   bool _isLoading = false;
 
   String _errorMessage = '';
+
+  String _filterQuery = '';
+
+  List<BookProduct> get _filteredProducts =>
+      _products.where((product) => product.matchesQuery(_filterQuery)).toList();
 
   @override
   void initState() {
     super.initState();
 
     // Automatically show books when Browse Books opens.
-    _searchBooks('fiction');
+    _searchBooks(widget.initialQuery);
   }
 
   // ========================================================
@@ -340,6 +651,9 @@ class _BookSearchSectionState extends State<BookSearchSection> {
 
   Future<void> _searchBooks(String query) async {
     if (query.trim().isEmpty) {
+      setState(() {
+        _filterQuery = '';
+      });
       return;
     }
 
@@ -351,24 +665,26 @@ class _BookSearchSectionState extends State<BookSearchSection> {
     });
 
     try {
-      final results = await BookService.searchBooks(query);
+      final results = widget.loadProducts != null
+          ? await widget.loadProducts!(query)
+          : await _apiController.getBooks(query);
 
       if (!mounted) return;
 
       setState(() {
-        _books = results;
+        _products = results;
         _isLoading = false;
       });
-    } catch (e) {
+    } catch (error) {
       if (!mounted) return;
 
       setState(() {
-        _books = [];
+        _products = [];
         _isLoading = false;
         _errorMessage =
-            'Unable to load books.\n'
-            'Please check your internet connection.';
+            'We could not load books. Check your connection and try again.';
       });
+      debugPrint('Could not load catalog: $error');
     }
   }
 
@@ -381,17 +697,11 @@ class _BookSearchSectionState extends State<BookSearchSection> {
         // ====================================================
         // TITLE
         // ====================================================
-        Text(
-          'Book collection',
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
+        Text(widget.title, style: Theme.of(context).textTheme.headlineSmall),
 
         const SizedBox(height: 8),
 
-        Text(
-          'Search books from the online catalogue.',
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
+        Text(widget.description, style: Theme.of(context).textTheme.bodyMedium),
 
         const SizedBox(height: 20),
 
@@ -402,13 +712,18 @@ class _BookSearchSectionState extends State<BookSearchSection> {
           controller: _searchController,
 
           textInputAction: TextInputAction.search,
+          onChanged: (value) {
+            setState(() {
+              _filterQuery = value;
+            });
+          },
 
           onSubmitted: (value) {
             _searchBooks(value);
           },
 
           decoration: InputDecoration(
-            hintText: 'Search books...',
+            hintText: 'Filter or search the catalog...',
 
             prefixIcon: const Icon(Icons.search),
 
@@ -483,7 +798,7 @@ class _BookSearchSectionState extends State<BookSearchSection> {
         // ====================================================
         // NO BOOKS
         // ====================================================
-        else if (_books.isEmpty)
+        else if (_products.isEmpty)
           const Center(
             child: Padding(
               padding: EdgeInsets.all(30),
@@ -492,25 +807,36 @@ class _BookSearchSectionState extends State<BookSearchSection> {
             ),
           )
         // ====================================================
-        // BOOK RESULTS
+        // PRODUCT RESULTS
         // ====================================================
         else
-          ListView.builder(
-            shrinkWrap: true,
-
-            physics: const NeverScrollableScrollPhysics(),
-
-            itemCount: _books.length,
-
-            itemBuilder: (context, index) {
-              final item = _books[index];
-
-              final Map<String, dynamic> book =
-                  item['volumeInfo'] as Map<String, dynamic>? ?? {};
-
-              return BookCard(book: book);
-            },
-          ),
+          _filteredProducts.isEmpty
+              ? const Padding(
+                  padding: EdgeInsets.all(30),
+                  child: Center(child: Text('No matching products found.')),
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: Text(
+                        '${_filteredProducts.length} catalog '
+                        '${_filteredProducts.length == 1 ? 'product' : 'products'}',
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: _filteredProducts.length,
+                      itemBuilder: (context, index) => BookCard(
+                        product: _filteredProducts[index],
+                        onAction: widget.onAction,
+                      ),
+                    ),
+                  ],
+                ),
       ],
     );
   }
@@ -518,6 +844,7 @@ class _BookSearchSectionState extends State<BookSearchSection> {
   @override
   void dispose() {
     _searchController.dispose();
+    if (widget.apiController == null) _apiController.close();
 
     super.dispose();
   }
@@ -528,28 +855,13 @@ class _BookSearchSectionState extends State<BookSearchSection> {
 // ==========================================================
 
 class BookCard extends StatelessWidget {
-  final Map<String, dynamic> book;
+  final BookProduct product;
+  final Future<void> Function(BookProduct product, String action)? onAction;
 
-  const BookCard({super.key, required this.book});
+  const BookCard({super.key, required this.product, this.onAction});
 
   @override
   Widget build(BuildContext context) {
-    final String title = book['title'] ?? 'Unknown Title';
-
-    final List<dynamic> authors = book['authors'] ?? ['Unknown Author'];
-
-    final String author = authors.join(', ');
-
-    final String description =
-        book['description'] ?? 'No description available.';
-
-    String? imageUrl = book['imageLinks']?['thumbnail'];
-
-    // Convert HTTP to HTTPS.
-    if (imageUrl != null) {
-      imageUrl = imageUrl.replaceFirst('http://', 'https://');
-    }
-
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
 
@@ -562,10 +874,13 @@ class BookCard extends StatelessWidget {
 
             MaterialPageRoute(
               builder: (context) => BookDetailsPage(
-                title: title,
-                author: author,
-                description: description,
-                imageUrl: imageUrl,
+                title: product.title,
+                author: product.author,
+                description: product.description,
+                imageUrl: product.imageUrl,
+                onAction: onAction == null
+                    ? null
+                    : (action) => onAction!(product, action),
               ),
             ),
           );
@@ -584,9 +899,9 @@ class BookCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
 
-                child: imageUrl != null
+                child: product.imageUrl != null
                     ? Image.network(
-                        imageUrl,
+                        product.imageUrl!,
 
                         width: 90,
                         height: 130,
@@ -612,7 +927,7 @@ class BookCard extends StatelessWidget {
                   children: [
                     // TITLE
                     Text(
-                      title,
+                      product.title,
 
                       maxLines: 2,
 
@@ -628,7 +943,7 @@ class BookCard extends StatelessWidget {
 
                     // AUTHOR
                     Text(
-                      author,
+                      product.author,
 
                       maxLines: 2,
 
@@ -641,7 +956,7 @@ class BookCard extends StatelessWidget {
 
                     // DESCRIPTION
                     Text(
-                      description,
+                      product.description,
 
                       maxLines: 4,
 
@@ -682,6 +997,7 @@ class BookDetailsPage extends StatelessWidget {
   final String author;
   final String description;
   final String? imageUrl;
+  final Future<void> Function(String action)? onAction;
 
   const BookDetailsPage({
     super.key,
@@ -689,7 +1005,22 @@ class BookDetailsPage extends StatelessWidget {
     required this.author,
     required this.description,
     this.imageUrl,
+    this.onAction,
   });
+
+  Future<void> _performAction(BuildContext context, String action) async {
+    final handler = onAction;
+    if (handler == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Open the catalog from your account to $action books.'),
+        ),
+      );
+      return;
+    }
+
+    await handler(action);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -788,11 +1119,7 @@ class BookDetailsPage extends StatelessWidget {
               width: double.infinity,
 
               child: ElevatedButton.icon(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Book added to Rent.')),
-                  );
-                },
+                onPressed: () => _performAction(context, 'Rent'),
 
                 icon: const Icon(Icons.autorenew),
 
@@ -809,11 +1136,7 @@ class BookDetailsPage extends StatelessWidget {
               width: double.infinity,
 
               child: OutlinedButton.icon(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Book added to Buy.')),
-                  );
-                },
+                onPressed: () => _performAction(context, 'Buy'),
 
                 icon: const Icon(Icons.shopping_bag),
 
