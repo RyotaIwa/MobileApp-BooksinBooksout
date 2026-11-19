@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'register_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -14,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isSigningIn = false;
+  bool _isSendingPasswordReset = false;
 
   Future<void> signIn() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
@@ -31,6 +34,40 @@ class _LoginPageState extends State<LoginPage> {
       ).showSnackBar(SnackBar(content: Text(e.message ?? 'Sign in failed')));
     } finally {
       if (mounted) setState(() => _isSigningIn = false);
+    }
+  }
+
+  Future<void> _sendPasswordReset() async {
+    final email = _emailController.text.trim();
+    if (!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(email)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Enter a valid email address first.')),
+      );
+      return;
+    }
+
+    setState(() => _isSendingPasswordReset = true);
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'If that email has an account, Firebase will send a reset link.',
+          ),
+        ),
+      );
+    } on FirebaseAuthException catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            error.message ?? 'Could not send a password reset link.',
+          ),
+        ),
+      );
+    } finally {
+      if (mounted) setState(() => _isSendingPasswordReset = false);
     }
   }
 
@@ -80,10 +117,14 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: 'Email address',
                         prefixIcon: Icon(Icons.email_outlined),
                       ),
-                      validator: (value) =>
-                          value == null || !value.contains('@')
-                          ? 'Enter a valid email address'
-                          : null,
+                      validator: (value) {
+                        final email = value?.trim() ?? '';
+                        return RegExp(
+                              r'^[^@\s]+@[^@\s]+\.[^@\s]+$',
+                            ).hasMatch(email)
+                            ? null
+                            : 'Enter a valid email address';
+                      },
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
@@ -96,6 +137,19 @@ class _LoginPageState extends State<LoginPage> {
                       validator: (value) => value == null || value.length < 6
                           ? 'Password must be at least 6 characters'
                           : null,
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: _isSendingPasswordReset
+                            ? null
+                            : _sendPasswordReset,
+                        child: Text(
+                          _isSendingPasswordReset
+                              ? 'Sending reset link...'
+                              : 'Forgot password?',
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 24),
                     SizedBox(
@@ -136,14 +190,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 20),
                     TextButton.icon(
-                      onPressed: () =>
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
-                                'Ask a librarian to create your account.',
-                              ),
-                            ),
-                          ),
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (context) => const RegisterPage(),
+                        ),
+                      ),
                       style: TextButton.styleFrom(
                         foregroundColor: Theme.of(context).colorScheme.primary,
                       ),

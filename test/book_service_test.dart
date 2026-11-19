@@ -8,79 +8,34 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
 void main() {
-  test('API controller executes GET, POST, PUT, and DELETE', () async {
+  test('API controller searches the Google Books catalog', () async {
     final requests = <http.Request>[];
     final client = MockClient((request) async {
       requests.add(request);
-      if (request.method == 'GET') {
-        return http.Response(
-          jsonEncode({
-            'items': [
-              {
-                'id': 'book-123',
-                'volumeInfo': {
-                  'title': 'The Hobbit',
-                  'authors': ['J. R. R. Tolkien'],
-                },
+      return http.Response(
+        jsonEncode({
+          'items': [
+            {
+              'id': 'book-123',
+              'volumeInfo': {
+                'title': 'The Hobbit',
+                'authors': ['J. R. R. Tolkien'],
               },
-            ],
-          }),
-          200,
-        );
-      }
-
-      if (request.method == 'POST') {
-        return http.Response('{"id":42,"title":"Buy: The Hobbit"}', 201);
-      }
-
-      if (request.method == 'PUT') {
-        return http.Response('{"id":42,"title":"Buy: The Hobbit"}', 200);
-      }
-
-      return http.Response('', 200);
+            },
+          ],
+        }),
+        200,
+      );
     });
     final controller = BookApiController(client: client);
-    const book = BookProduct(
-      id: 'book-123',
-      title: 'The Hobbit',
-      author: 'J. R. R. Tolkien',
-      description: 'A fantasy adventure.',
-    );
 
     final books = await controller.getBooks('hobbit');
-    final created = await controller.createOrder(
-      product: books.single,
-      action: 'Buy',
-    );
-    final updated = await controller.updateOrder(
-      orderId: '42',
-      product: book,
-      action: 'Buy',
-      status: 'Completed',
-    );
-    final deleted = await controller.deleteOrder('42');
     controller.close();
 
     expect(books.single.title, 'The Hobbit');
-    expect(created.statusCode, 201);
-    expect(updated.statusCode, 200);
-    expect(deleted.statusCode, 200);
-    expect(requests.map((request) => request.method), [
-      'GET',
-      'POST',
-      'PUT',
-      'DELETE',
-    ]);
-    expect(requests[0].url.queryParameters['q'], 'hobbit');
-    expect(requests[1].url.path, '/posts');
-    expect(requests[1].headers['content-type'], contains('application/json'));
-    expect(requests[2].url.path, '/posts/42');
-    final updateBody = jsonDecode(requests[2].body) as Map<String, dynamic>;
-    expect(
-      jsonDecode(updateBody['body'] as String),
-      containsPair('status', 'Completed'),
-    );
-    expect(requests[3].url.path, '/posts/42');
+    expect(requests, hasLength(1));
+    expect(requests.single.url.queryParameters['q'], 'hobbit');
+    expect(requests.single.url.queryParameters['printType'], 'books');
   });
 
   group('BookProduct', () {

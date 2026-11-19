@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'book_api_controller.dart';
+import 'book_firestore_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +16,48 @@ class _HomePageState extends State<HomePage> {
 
   int _selectedIndex = 0;
   final BookApiController _apiController = BookApiController();
-  final List<_BookActivity> _activity = [];
+  final BookFirestoreController _firestoreController =
+      BookFirestoreController();
+  List<BookActivity> _activity = [];
+  bool _isLoadingActivity = true;
+  String? _activityLoadError;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadActivity();
+  }
+
+  Future<void> _loadActivity() async {
+    setState(() {
+      _isLoadingActivity = true;
+      _activityLoadError = null;
+    });
+
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        throw StateError('A signed-in user is required to load book data.');
+      }
+      await _firestoreController.ensureUserProfile(
+        email: currentUser.email ?? '',
+        displayName: currentUser.displayName,
+      );
+      final activities = await _firestoreController.getActivities();
+      if (!mounted) return;
+      setState(() {
+        _activity = activities;
+        _isLoadingActivity = false;
+      });
+    } catch (error) {
+      debugPrint('Could not load book activities: $error');
+      if (!mounted) return;
+      setState(() {
+        _activityLoadError = 'Could not load your books.';
+        _isLoadingActivity = false;
+      });
+    }
+  }
 
   void _openSection(int index) {
     setState(() {
@@ -49,28 +91,15 @@ class _HomePageState extends State<HomePage> {
     if (confirmed != true || !mounted) return;
 
     try {
-      final result = await _apiController.createOrder(
+      final activity = await _firestoreController.createActivity(
         product: product,
         action: action,
       );
-      final orderId = result.json['id'];
-      if (orderId == null) {
-        throw const FormatException('The API did not return an order ID.');
-      }
 
       if (!mounted) return;
 
       setState(() {
-        final isRent = action == 'Rent';
-        _activity.insert(
-          0,
-          _BookActivity(
-            orderId: orderId.toString(),
-            product: product,
-            action: action,
-            status: isRent ? 'Rented' : 'To read',
-          ),
-        );
+        _activity.insert(0, activity);
       });
 
       Navigator.of(context).pop();
@@ -92,7 +121,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<void> _updateActivity(_BookActivity entry) async {
+  Future<void> _updateActivity(BookActivity entry) async {
     final isRental = entry.action == 'Rent';
     final confirmed = await showDialog<bool>(
       context: context,
@@ -119,8 +148,9 @@ class _HomePageState extends State<HomePage> {
 
     final updatedStatus = entry.action == 'Rent' ? 'Returned' : 'Read';
     try {
-      await _apiController.updateOrder(
+      final updatedActivity = await _firestoreController.updateActivity(
         orderId: entry.orderId,
+        collection: entry.collection,
         product: entry.product,
         action: entry.action,
         status: updatedStatus,
@@ -130,7 +160,7 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         final index = _activity.indexOf(entry);
         if (index >= 0) {
-          _activity[index] = entry.copyWith(status: updatedStatus);
+          _activity[index] = updatedActivity;
         }
       });
       _showRequestMessage(
@@ -142,7 +172,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<void> _deleteActivity(_BookActivity entry) async {
+  Future<void> _deleteActivity(BookActivity entry) async {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
@@ -163,7 +193,10 @@ class _HomePageState extends State<HomePage> {
     if (confirmed != true) return;
 
     try {
-      await _apiController.deleteOrder(entry.orderId);
+      await _firestoreController.deleteActivity(
+        orderId: entry.orderId,
+        collection: entry.collection,
+      );
       if (!mounted) return;
       setState(() {
         _activity.remove(entry);
@@ -185,7 +218,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildShelf({
     required String title,
     required IconData icon,
-    required List<_BookActivity> entries,
+    required List<BookActivity> entries,
     required String emptyMessage,
     required String actionLabel,
     bool showAction = true,
@@ -195,7 +228,22 @@ class _HomePageState extends State<HomePage> {
       icon: icon,
       child: Column(
         children: [
-          if (entries.isEmpty)
+          if (_isLoadingActivity)
+            const Padding(
+              padding: EdgeInsets.all(20),
+              child: CircularProgressIndicator(),
+            )
+          else if (_activityLoadError != null)
+            ListTile(
+              leading: const Icon(Icons.cloud_off),
+              title: Text(_activityLoadError!),
+              trailing: IconButton(
+                tooltip: 'Retry loading books',
+                onPressed: _loadActivity,
+                icon: const Icon(Icons.refresh),
+              ),
+            )
+          else if (entries.isEmpty)
             ListTile(leading: Icon(icon), title: Text(emptyMessage))
           else
             ...entries.map(
@@ -241,7 +289,9 @@ class _HomePageState extends State<HomePage> {
     return _buildShelf(
       title: 'History',
       icon: Icons.history,
-      entries: List.of(_activity),
+      entries: _activity
+          .where((entry) => entry.collection == 'reading_history')
+          .toList(),
       emptyMessage: 'Books you buy or rent will appear here.',
       actionLabel: '',
       showAction: false,
@@ -572,27 +622,6 @@ class _HomePageState extends State<HomePage> {
     _apiController.close();
     super.dispose();
   }
-}
-
-class _BookActivity {
-  final String orderId;
-  final BookProduct product;
-  final String action;
-  final String status;
-
-  const _BookActivity({
-    required this.orderId,
-    required this.product,
-    required this.action,
-    required this.status,
-  });
-
-  _BookActivity copyWith({String? status}) => _BookActivity(
-    orderId: orderId,
-    product: product,
-    action: action,
-    status: status ?? this.status,
-  );
 }
 
 // ==========================================================

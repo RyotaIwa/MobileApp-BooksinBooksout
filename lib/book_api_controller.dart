@@ -58,27 +58,9 @@ class BookProduct {
   }
 }
 
-class ApiCallResult {
-  final String method;
-  final Uri uri;
-  final int statusCode;
-  final Map<String, dynamic> json;
-
-  const ApiCallResult({
-    required this.method,
-    required this.uri,
-    required this.statusCode,
-    required this.json,
-  });
-
-  String get prettyJson => const JsonEncoder.withIndent('  ').convert(json);
-}
-
 class BookApiController {
   static const String booksBaseUrl =
       'https://www.googleapis.com/books/v1/volumes';
-  static const String demoOrdersBaseUrl =
-      'https://jsonplaceholder.typicode.com/posts';
   static const String apiKey = 'AIzaSyAD0m8xTS3vYbF9I3LyoJLG5ZnIFLcBVTw';
 
   final http.Client _client;
@@ -113,78 +95,6 @@ class BookApiController {
         .whereType<Map<String, dynamic>>()
         .map(BookProduct.fromJson)
         .toList();
-  }
-
-  Future<ApiCallResult> createOrder({
-    required BookProduct product,
-    required String action,
-  }) {
-    final uri = Uri.parse(demoOrdersBaseUrl);
-    return _send(
-      'POST',
-      uri,
-      body: {
-        'title': '$action: ${product.title}',
-        'body': jsonEncode({
-          'bookId': product.id,
-          'author': product.author,
-          'action': action,
-          'status': 'Active',
-        }),
-        'userId': 1,
-      },
-    );
-  }
-
-  Future<ApiCallResult> updateOrder({
-    required String orderId,
-    required BookProduct product,
-    required String action,
-    required String status,
-  }) {
-    final uri = Uri.parse('$demoOrdersBaseUrl/$orderId');
-    return _send(
-      'PUT',
-      uri,
-      body: {
-        'title': '$action: ${product.title}',
-        'body': jsonEncode({
-          'bookId': product.id,
-          'author': product.author,
-          'action': action,
-          'status': status,
-        }),
-        'userId': 1,
-      },
-    );
-  }
-
-  Future<ApiCallResult> deleteOrder(String orderId) {
-    final uri = Uri.parse('$demoOrdersBaseUrl/$orderId');
-    return _send('DELETE', uri);
-  }
-
-  Future<ApiCallResult> _send(
-    String method,
-    Uri uri, {
-    Map<String, dynamic>? body,
-  }) async {
-    final request = http.Request(method, uri);
-    if (body != null) {
-      request.headers['content-type'] = 'application/json; charset=UTF-8';
-      request.body = jsonEncode(body);
-    }
-
-    final streamedResponse = await _client.send(request);
-    final response = await http.Response.fromStream(streamedResponse);
-    final json = _decodeResponse(response);
-
-    return ApiCallResult(
-      method: method,
-      uri: uri,
-      statusCode: response.statusCode,
-      json: json,
-    );
   }
 
   Map<String, dynamic> _decodeResponse(http.Response response) {
